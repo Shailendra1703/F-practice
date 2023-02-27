@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+// import { getStorage } from "firbase/storage";
 import { initializeApp } from "firebase/app";
 import {
   collection,
@@ -41,11 +42,13 @@ getDocs(colRef)
     snapshot.docs.forEach((doc) => {
       user.push({ ...doc.data(), id: doc.id });
     });
-    console.log(user);
+    // console.log(user);
   })
   .catch((err) => {
     console.log(err.message);
   });
+
+export default app;
 
 // export const createUserDocument = async (user) => {
 //   if (!user) {
@@ -88,5 +91,3 @@ getDocs(colRef)
 //     }
 //   }
 // };
-
-export default app;

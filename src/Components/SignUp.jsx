@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { useState } from "react";
 import { useAuth } from "../context/AuthProvider";
+const axios = require("axios");
 
 const SignUp = () => {
   const design = { padding: "5px", margin: "5px", width: "200px" };
@@ -25,7 +26,22 @@ const SignUp = () => {
     try {
       setLoding(true);
       setError("");
+
+      // let email = emailRef.current.value;
+      // console.log(email);
+      // let email = emailRef.current.value;
+      // axios
+      //   .post(
+      //     "https://us-central1-contact-form-92728.cloudfunctions.net/widgets/hello",
+      //     { email: email, body: "this is request" }
+      //   )
+      //   .then((res) => {
+      //     console.log(res);
+      //   })
+      //   .catch((e) => console.log(e));
+
       signup(emailRef.current.value, passwordRef.current.value);
+
       emailRef.current.value = "";
       passwordRef.current.value = "";
       usernameRef.current.value = "";
